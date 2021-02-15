@@ -62,7 +62,7 @@ var Apple1 = new Fruit("Apple","Red");
 
 - Prototyping is also an easy way to add properties and methods to objects that have already been instantiated.
 
-## Example
+## Example 1
 ```javascript
 var vegetable = function() {
     this.type = "Veggie";    
@@ -78,5 +78,39 @@ var carrot = new vegetable();
 
 carrot.print();
 carrot.color = "orange";
+```
+
+## Example 2
+```javascript
+// Constructor
+var Employee = function(empName, empCity) { 
+    this.orgEmpName = empName;
+    this.orgEmpCity = empCity;
+} 
+
+// Contstructor
+var Department = function(empName, empCity, deptName) { 
+    Employee.call(this, empName, empCity);    
+    this.deptName = deptName;
+}
+
+// Created Department.prototype object that inherits from Employee.prototype
+Department.prototype = Object.create(Employee.prototype);
+
+
+// Prototyping Function
+Employee.prototype.getEmpInfo = function(){ 
+    console.log('Employee Name: ' + this.orgEmpName + ' Employee City: ' + this.orgEmpCity);
+}
+
+// Prototyping Function
+Department.prototype.getDeptInfo = function() {
+    console.log('Employee Name: ' + this.orgEmpName + ' Department: ' + this.deptName)
+}
+
+var emp1 = new Department("Husen", "Ahmedabad", "Front-end");
+
+emp1.getEmpInfo();
+emp1.getDeptInfo();
 ```
 
