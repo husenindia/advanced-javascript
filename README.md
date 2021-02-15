@@ -1,3 +1,36 @@
+# Closures
+
+```bash
+A closure is the combination of a function bundled together
+```
+
+## Example 1 
+
+```javascript
+function outerFunction(outerVariable){
+	return function innerFunction(innerVariable) {
+		console.log('outer' + outerVariable)
+		console.log('inner' + innerVariable)
+	}
+}
+```
+
+## Example 2
+
+```javascript
+function demo(){
+    var city= "Ahmedabad";
+    return {
+        get: function() { console.log(city);},
+        set: function(newCity) { city = newCity; }
+    }
+}
+
+var myCity = demo();
+myCity.get();
+myCity.set('Pune');  
+```
+
 # Constructor
 
 - Contructors: Are used to set an object properties and methods.
