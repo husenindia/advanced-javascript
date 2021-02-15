@@ -39,7 +39,11 @@ vegetable.prototype.print = function(){
     console.log(this.type + " is good for us.");
 }
 
+vegetable.prototype.color = "";
+
 var carrot = new vegetable();
+
 carrot.print();
+carrot.color = "orange";
 ```
 
