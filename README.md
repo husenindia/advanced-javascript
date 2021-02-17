@@ -114,3 +114,32 @@ emp1.getEmpInfo();
 emp1.getDeptInfo();
 ```
 
+
+# Web Worker
+- A web worker is a script that runs in the background (i.e., in another thread) without the page needing to wait for it to complete. The user can continue to interact with the page while the web worker runs in the background. Workers utilize thread-like message passing to achieve parallelism.
+
+## Example 1
+```javascript
+    // Create worker    
+    var worker = new Worker('./script.js');
+
+    // Receive
+    worker.onmessage = function(e) {
+        var message = e.data;        
+        console.log(message2);
+        return deferred.promise();
+    }
+
+    // Send
+    function submit() {
+        var message = document.getElementById('message').value;        
+        worker.postMessage(message);
+    }
+
+
+    // SCRIPT.js
+    self.onmessage = function(e) {
+        var message = e.data;
+        self.postMessage(message + ' Processed');
+    }
+```
