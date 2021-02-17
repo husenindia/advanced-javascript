@@ -4,19 +4,9 @@
 <input type="text" id="message">
 <button id="sendmessage" onclick="submit()">Send Message</button>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="script.js"></script>
+
 <script>
-function processMessage(message) {
-    // Create worker    
-    var worker = new Worker('./script.js');
-    var deferred = $.Deferred();
-    var startTime = new Date().toTimeString();
-    // Receive
-    worker.onmessage = function(e) {
-        deferred.resolve(message + ' ' + startTime);
-    }
-    worker.postMessage({status:"Start"});   
-    return deferred.promise();
-}
 
 // Send
 function submit() {
