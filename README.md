@@ -135,9 +135,10 @@ emp1.getDeptInfo();
         var message = document.getElementById('message').value;        
         worker.postMessage(message);
     }
+```
 
-
-    // SCRIPT.js
+### Sript.js
+```javascript
     self.onmessage = function(e) {
         var message = e.data;
         self.postMessage(message + ' Processed');
